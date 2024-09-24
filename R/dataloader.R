@@ -196,9 +196,9 @@ dataloader <- function(dataset, base_dir = ".") {
         info = as.factor(Quake_Smartseq2_Lung$data.cellType)
       )
     },
-    "pbmc" = {
-      dat <- utils::read.csv("pbmc_5k_data.csv", header = TRUE, row.names = 1)
-      lab <- utils::read.csv("pbmc_5k_metadata.csv", header = TRUE, row.names = 1)[,1]
+    "Brain5k" = {
+      dat <- utils::read.csv("Brain5k_data.csv", header = TRUE, row.names = 1)
+      lab <- utils::read.csv("Brain5k_metadata.csv", header = TRUE, row.names = 1)[,1]
       list(
         dat = dat,
         cell.type = as.factor(lab),
