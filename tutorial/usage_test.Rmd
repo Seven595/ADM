@@ -1,0 +1,50 @@
+
+
+```{r}
+library(ADM)
+load("data/Oihane/Oihane.Rdata")
+load("data/Oihane/Oihane adm_out.Rdata")
+dat = Oihane
+cell.type = as.factor(Oihane.info.cellType)
+info = as.factor(Oihane.info.cellType)
+label_mapping <- get_mapping("Oihane")
+```
+
+```{r}
+candidate.out = ADM::candidate.visual(dat, dim = 3)
+
+```
+
+
+```{r}
+load("data/Oihane/all embeded dim 3.bin")
+# mev.out = mev(e)
+```
+
+
+```{r}
+n_components = 3
+cci_adm <- dist.grp(mev.out$diffu.dist, info, k=c(1,2,5,10,20))
+cci_adm <- cbind(cci_adm, umap5(x=mev.out$diffu.dist, info=info,  n_components = n_components, do.plot=FALSE))
+cci_adm <- cbind(cci_adm, dist.grp(as.matrix(stats::dist(eigen(max(mev.out$diffu.dist)-mev.out$diffu.dist)$vec[,1:n_components])), info, k=c(1,2,5,10,20))[,2])
+colnames(cci_adm) <- c("n_neighbors","adm_raw","adm_umap","adm_pca")
+
+```
+```{r}
+color_list =c("#FB6A4A","#54278F","#006635","#3182BD","#DE2D26","#72A34F","#5D7AD3", "#756BB1","#FCAE91","#fe87ac","#AFABAB","#67A9CF","#CBC9E2","#4d982e","#E6873E","#545454","#aa3474","#ee8c7d","#2e5fa1","#FDD0A3","#C22F2F","#036f73")
+names_list = c("PCA","MDS","iMDS","Sammon", "HLLE","Isomap","kPCA1","kPCA2","LEIM" , "UMAP1" , "UMAP2" , "tSNE1", "tSNE2", "PHATE1", "PHATE2","KEF")
+
+p = visualize_individual_methods(e,names_list, info, color_list)
+
+results = process_and_visualize_meta_methods(mev.out,info, color_list)
+```
+
+
+```{r}
+p[[1]]
+
+```
+
+
+
+
