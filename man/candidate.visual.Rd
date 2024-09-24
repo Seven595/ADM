@@ -8,7 +8,7 @@ candidate.visual(
   data,
   dim = 2,
   methods = c("PCA", "MDS", "iMDS", "Sammon", "HLLE", "Isomap", "kPCA", "LEIM", "UMAP",
-    "tSNE", "PHATE"),
+    "tSNE", "PHATE", "KEF"),
   kpca.sigma = c(0.001, 0.002),
   umap.k = c(30, 50),
   tsne.perplexity = c(30, 50),

@@ -87,7 +87,7 @@ mev <- function(e, k.dim = NULL, dist.power = 0.5, conn.prop = 0.02, raw.d.pwr =
                 symmetrize = "mean", dist.quantile = 0.25) {
   
   if (is.null(k.dim)) k.dim <- ncol(e[[1]])
-  
+  print("working on ADM...")
   fake.fun <- function(this.e, raw.d.pwr, diffu.steps, conn.prop, scale.dist, symmetrize, diffu.factor, dist.quantile) {
     this.e <- move.outlier(this.e)
     this.d <- as.matrix(stats::dist(this.e))
@@ -182,3 +182,5 @@ mev <- function(e, k.dim = NULL, dist.power = 0.5, conn.prop = 0.02, raw.d.pwr =
   
   list(diffu.dist = dd)
 }
+
+
