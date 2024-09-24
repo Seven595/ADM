@@ -428,63 +428,83 @@ visualize_individual_methods <- function(matrices, method_names, info = NULL, co
   return(plots)
 }
 
+
+
 #' Process and Visualize Meta-Methods
 #'
+#' @param ensemble.out Output from an ensemble method (assumed to contain $ensemble.dist.mat). Can be NULL.
 #' @param mev.out Output from MEV method (assumed to contain $diffu.dist).
 #' @param info A vector of true class labels.
+#' @param k The number of clusters for k-means clustering.
 #' @param color_list A list of colors for visualization.
 #' @param seed An integer seed for reproducibility. Default is 2024.
 #'
-#' @return A list containing:
-#'   \item{ARI_list}{A list with ARI and NMI scores for the ADM method.}
-#'   \item{ASW_list}{A list with silhouette widths for the ADM method.}
-#'   \item{umap_viz}{A ggplot object visualizing the UMAP projection.}
-#'   \item{umap_adm}{UMAP coordinates for the ADM method.}
+#' @return A list containing ARI and NMI scores, silhouette widths, and UMAP coordinates for meta-spec and/or ADM methods.
 #'
 #' @details
-#' This function processes and visualizes results from the ADM (Adaptive Distance Matrix) meta-method.
-#' It performs UMAP dimensionality reduction, calculates ARI (Adjusted Rand Index) and NMI (Normalized Mutual Information) scores,
-#' and computes silhouette widths. The number of clusters (k) is automatically determined from the unique values in the info vector.
+#' This function processes and visualizes results from two meta-methods: meta-spec and ADM.
+#' If ensemble.out is NULL, only ADM method is executed.
+#' It performs UMAP dimensionality reduction, k-means clustering, and calculates various metrics.
 #'
 #' @note
-#' This function requires the following packages: uwot, cluster, ggplot2
-#' It also relies on two custom functions: cal_ari_nmi() and visualization_func()
+#' This function requires the following packages: umap, mclust, aricode, cluster
 #'
 #' @examples
 #' # This function requires specific input structures and external functions
 #' # An example cannot be easily provided without those dependencies
 #'
 #' @export
-process_and_visualize_meta_methods <- function(mev.out, info, color_list, seed = 2024) {
+process_and_visualize_meta_methods <- function(mev.out, ensemble.out = NULL, info, k, color_list, seed = 2024) {
   # Input validation
-  if (!("diffu.dist" %in% names(mev.out))) {
+  if (!is.null(ensemble.out) && !all(c("ensemble.dist.mat") %in% names(ensemble.out))) {
+    stop("When provided, ensemble.out must contain 'ensemble.dist.mat'")
+  }
+  if (!all(c("diffu.dist") %in% names(mev.out))) {
     stop("mev.out must contain 'diffu.dist'")
   }
-  if (length(info) != nrow(as.matrix(mev.out$diffu.dist))) {
-    stop("Length of info must match the number of rows in diffu.dist")
+  if (!is.null(ensemble.out) && length(info) != nrow(ensemble.out$ensemble.dist.mat)) {
+    stop("Length of info must match the number of rows in ensemble.dist.mat")
   }
 
   set.seed(seed)
   ARI_list <- list()
   ASW_list <- list()
-  
+  print(paste("Running R version:", R.version$major, ".", R.version$minor, sep = ""))
+
+  # Meta-spec method (only if ensemble.out is not NULL)
+  if (!is.null(ensemble.out)) {
+    method <- "meta-spec"
+    umap_viz0 <- uwot::umap(ensemble.out$ensemble.dist.mat)
+    cluster_viz <- stats::kmeans(umap_viz0, centers = k)
+    ARI <- mclust::adjustedRandIndex(info, cluster_viz$cluster)
+    NMI <- aricode::NMI(info, cluster_viz$cluster)
+    ARI_list[[1]] <- data.frame(ARI = ARI, NMI = NMI)
+    print(ARI_list[[1]])
+    ASW_list[[1]] <- cluster::silhouette(as.numeric(factor(info)), dist = stats::dist(umap_viz0))[, 3]
+    umap_viz <- as.data.frame(umap_viz0)
+    visualization_func(umap_viz, method, color_list, info)
+  }
+
   # ADM method
   method <- "ADM"
-  k <- length(unique(info))
   umap_adm0 <- uwot::umap(mev.out$diffu.dist)
-  ARI_list[[1]] <- cal_ari_nmi(umap_adm0, k, method, seed, info)
-  ASW_list[[1]] <- cluster::silhouette(as.numeric(factor(info)), dist = stats::dist(umap_adm0))[, 3]
+  ARI_list[[length(ARI_list) + 1]] <- cal_ari_nmi(umap_adm0, k, method, seed, info)
+  ASW_list[[length(ASW_list) + 1]] <- cluster::silhouette(as.numeric(factor(info)), dist = stats::dist(umap_adm0))[, 3]
   umap_adm <- as.data.frame(umap_adm0)
-  umap_viz0 <- visualization_func(umap_adm, method, color_list, info)
+  visualization_func(umap_adm, method, color_list, info)
 
-  return(list(
+  result <- list(
     ARI_list = ARI_list,
     ASW_list = ASW_list,
-    umap_viz = umap_viz0,
     umap_adm = umap_adm0
-  ))
-}
+  )
 
+  if (!is.null(ensemble.out)) {
+    result$umap_viz <- umap_viz0
+  }
+
+  return(result)
+}
 
 
 #' Visualize Silhouette Width Comparison
@@ -547,51 +567,70 @@ visualize_silhouette_width <- function(ASW_list, info, data_name, label_mapping 
 
   return(p)
 }
-
-#' Visualize ARI and NMI for ADM Method with Bar Plot
+#' Visualize ARI and NMI Comparison with Bar Plot
 #'
-#' This function generates a bar plot to visualize ARI and NMI metrics for the ADM method.
+#' This function generates a bar plot to compare ARI and NMI metrics across methods.
 #'
-#' @param ARI_list A list containing one element: ARI and NMI scores for the ADM method.
+#' @param ARI_list A list containing one or two elements: ARI and NMI scores for ADM method, and optionally for meta-spec method.
 #' @param dataset A string naming the dataset being visualized.
 #'
 #' @return Invisibly returns a ggplot object visualizing ARI and NMI scores.
 #'
 #' @details
-#' The function creates a bar plot using ggplot2, with metrics on the x-axis and their values on the y-axis.
-#' The plot uses a minimal theme and a predefined color for the ADM method.
+#' The function adapts to whether one (ADM only) or two (meta-spec and ADM) methods are present in the input.
+#' It creates a bar plot using ggplot2, with metrics on the x-axis and their values on the y-axis.
+#' Bars are grouped and colored by the 'group' variable. The plot uses a minimal theme and predefined colors.
 #'
 #' @examples
-#' # Assuming necessary functions and data are available
-#' ARI_list <- list(data.frame(ARI = 0.8, NMI = 0.9))
-#' visualize_ari_nmi(ARI_list, "Example Dataset")
+#' # Example with only ADM method
+#' ARI_list_single <- list(data.frame(ARI = 0.7, NMI = 0.8))
+#' visualize_ari_nmi(ARI_list_single, "Dataset A")
+#'
+#' # Example with both methods
+#' ARI_list_double <- list(
+#'   data.frame(ARI = 0.8, NMI = 0.9),
+#'   data.frame(ARI = 0.7, NMI = 0.8)
+#' )
+#' visualize_ari_nmi(ARI_list_double, "Dataset B")
 #'
 #' @export
 visualize_ari_nmi <- function(ARI_list, dataset) {
   # Input validation
-  if (length(ARI_list) != 1 || !all(c("ARI", "NMI") %in% names(ARI_list[[1]]))) {
-    stop("ARI_list must be a list with one element, a data frame with 'ARI' and 'NMI' columns")
+  if (!is.list(ARI_list) || length(ARI_list) < 1 || length(ARI_list) > 2) {
+    stop("ARI_list must be a list with one or two elements")
+  }
+  if (!all(sapply(ARI_list, function(x) all(c("ARI", "NMI") %in% names(x))))) {
+    stop("Each element of ARI_list must be a data frame with 'ARI' and 'NMI' columns")
   }
   if (!is.character(dataset) || length(dataset) != 1) {
     stop("dataset must be a single string")
   }
 
-  # Extract ARI and NMI data
-  ARI_adm <- ARI_list[[1]]
+  # Determine if we have one or two methods
+  has_two_methods <- length(ARI_list) == 2
+
+  # Prepare data
+  if (has_two_methods) {
+    data_combined <- dplyr::bind_rows(
+      cbind(ARI_list[[1]], group = "meta-spec"),
+      cbind(ARI_list[[2]], group = "ADM")
+    )
+  } else {
+    data_combined <- cbind(ARI_list[[1]], group = "ADM")
+  }
 
   # Convert to long format
-  data_long <- tidyr::pivot_longer(ARI_adm,
+  data_long <- tidyr::pivot_longer(data_combined,
                                    cols = c("ARI", "NMI"),
                                    names_to = "Metric",
                                    values_to = "Value")
-  data_long$group <- "ADM"
 
   # Create the plot
   plot <- ggplot(data_long, aes(x = .data$Metric, y = .data$Value, fill = .data$group)) +
-    geom_bar(stat = "identity", width = 0.6) +
+    geom_bar(stat = "identity", position = position_dodge(width = 0.7), width = 0.6) +
     labs(title = dataset,
          x = NULL, y = "") +
-    scale_fill_manual(values = c("#8669A9")) +
+    scale_fill_manual(values = c("#4B8537", "#8669A9")) +
     scale_y_continuous(expand = expansion(mult = c(0, 0.05))) +
     theme_minimal() +
     theme(
@@ -601,6 +640,11 @@ visualize_ari_nmi <- function(ARI_list, dataset) {
       legend.text = element_text(size = 10),
       legend.position = "bottom"
     )
+
+  # Adjust legend if only one method
+  if (!has_two_methods) {
+    plot <- plot + theme(legend.position = "none")
+  }
 
   # Print the plot and return it invisibly
   print(plot)

@@ -4,35 +4,41 @@
 \alias{process_and_visualize_meta_methods}
 \title{Process and Visualize Meta-Methods}
 \usage{
-process_and_visualize_meta_methods(mev.out, info, color_list, seed = 2024)
+process_and_visualize_meta_methods(
+  mev.out,
+  ensemble.out = NULL,
+  info,
+  k,
+  color_list,
+  seed = 2024
+)
 }
 \arguments{
 \item{mev.out}{Output from MEV method (assumed to contain $diffu.dist).}
 
+\item{ensemble.out}{Output from an ensemble method (assumed to contain $ensemble.dist.mat). Can be NULL.}
+
 \item{info}{A vector of true class labels.}
+
+\item{k}{The number of clusters for k-means clustering.}
 
 \item{color_list}{A list of colors for visualization.}
 
 \item{seed}{An integer seed for reproducibility. Default is 2024.}
 }
 \value{
-A list containing:
-  \item{ARI_list}{A list with ARI and NMI scores for the ADM method.}
-  \item{ASW_list}{A list with silhouette widths for the ADM method.}
-  \item{umap_viz}{A ggplot object visualizing the UMAP projection.}
-  \item{umap_adm}{UMAP coordinates for the ADM method.}
+A list containing ARI and NMI scores, silhouette widths, and UMAP coordinates for meta-spec and/or ADM methods.
 }
 \description{
 Process and Visualize Meta-Methods
 }
 \details{
-This function processes and visualizes results from the ADM (Adaptive Distance Matrix) meta-method.
-It performs UMAP dimensionality reduction, calculates ARI (Adjusted Rand Index) and NMI (Normalized Mutual Information) scores,
-and computes silhouette widths. The number of clusters (k) is automatically determined from the unique values in the info vector.
+This function processes and visualizes results from two meta-methods: meta-spec and ADM.
+If ensemble.out is NULL, only ADM method is executed.
+It performs UMAP dimensionality reduction, k-means clustering, and calculates various metrics.
 }
 \note{
-This function requires the following packages: uwot, cluster, ggplot2
-It also relies on two custom functions: cal_ari_nmi() and visualization_func()
+This function requires the following packages: umap, mclust, aricode, cluster
 }
 \examples{
 # This function requires specific input structures and external functions

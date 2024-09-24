@@ -2,12 +2,12 @@
 % Please edit documentation in R/Plotfunctions.R
 \name{visualize_ari_nmi}
 \alias{visualize_ari_nmi}
-\title{Visualize ARI and NMI for ADM Method with Bar Plot}
+\title{Visualize ARI and NMI Comparison with Bar Plot}
 \usage{
 visualize_ari_nmi(ARI_list, dataset)
 }
 \arguments{
-\item{ARI_list}{A list containing one element: ARI and NMI scores for the ADM method.}
+\item{ARI_list}{A list containing one or two elements: ARI and NMI scores for ADM method, and optionally for meta-spec method.}
 
 \item{dataset}{A string naming the dataset being visualized.}
 }
@@ -15,15 +15,23 @@ visualize_ari_nmi(ARI_list, dataset)
 Invisibly returns a ggplot object visualizing ARI and NMI scores.
 }
 \description{
-This function generates a bar plot to visualize ARI and NMI metrics for the ADM method.
+This function generates a bar plot to compare ARI and NMI metrics across methods.
 }
 \details{
-The function creates a bar plot using ggplot2, with metrics on the x-axis and their values on the y-axis.
-The plot uses a minimal theme and a predefined color for the ADM method.
+The function adapts to whether one (ADM only) or two (meta-spec and ADM) methods are present in the input.
+It creates a bar plot using ggplot2, with metrics on the x-axis and their values on the y-axis.
+Bars are grouped and colored by the 'group' variable. The plot uses a minimal theme and predefined colors.
 }
 \examples{
-# Assuming necessary functions and data are available
-ARI_list <- list(data.frame(ARI = 0.8, NMI = 0.9))
-visualize_ari_nmi(ARI_list, "Example Dataset")
+# Example with only ADM method
+ARI_list_single <- list(data.frame(ARI = 0.7, NMI = 0.8))
+visualize_ari_nmi(ARI_list_single, "Dataset A")
+
+# Example with both methods
+ARI_list_double <- list(
+  data.frame(ARI = 0.8, NMI = 0.9),
+  data.frame(ARI = 0.7, NMI = 0.8)
+)
+visualize_ari_nmi(ARI_list_double, "Dataset B")
 
 }
