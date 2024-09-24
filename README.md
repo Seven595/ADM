@@ -71,7 +71,7 @@ candidate_result = candidate.out[[1]]
 names_list = candidate.out[[2]]
 
 # Calculate ADM dimension reduction results
-adm.out = ADM(candidate_result)
+adm.out = adm(candidate_result)
 
 # Quantify ADM dimension reduction results
 results = process_and_visualize_meta_methods(adm.out, info, color_list)
@@ -134,13 +134,3 @@ results[[3]]
 - Parameters: `lowDim_data`, `k` (number of clusters), `method_name`, `seed`, `info` (true class labels)
 - Returns a data frame with ARI and NMI scores
 
-## Data
-
-The package includes functions to work with various datasets, including:
-
-- Oihane dataset
-- Quake dataset
-- miR dataset
-- Gene expression dataset
-
-Use the `get_mapping()` function to get the appropriate label mapping for each dataset.
