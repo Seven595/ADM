@@ -8,7 +8,7 @@ These diffusion distances leverage the dynamic Markov process to link the Euclid
 
 Next, we combine the diffusion distance matrices from all candidate methods using harmonic averaging and gamma distribution-based normalization to construct a comprehensive meta-diffusion-distance matrix. This distance leverages the advantages of individual candidate techniques, providing a robust representation of the dataset and enabling in-depth exploration of complex relationships among samples.
 
-![framework](D:\Learning_meterials\PHD\CUHK\MEV\MEV-manuscript\image\framework.png)
+![framework](D:\Learning_meterials\PHD\CUHK\MEV\MEV-manuscript\bioarxiv\BIB\code整理\ADM\submit\ADMPackage\framework.png)
 
 ## Installation
 
@@ -51,7 +51,7 @@ devtools::install_github("Seven595/ADMPackage")
 
     
 
-## Usage
+## Tutorials
 
 Here's a basic example of how to use ADMPackage:
 
@@ -76,8 +76,8 @@ adm.out = adm(candidate_result)
 # Quantify ADM dimension reduction results
 results = process_and_visualize_meta_methods(adm.out, info, color_list)
 
-ARI_NMI = results[[1]]
-ASW = results[[2]]
+ARI_NMI = results$ARI_list
+ASW = results$ASW_list
 
 # Visualize individual dimension reduction technique results
 p = visualize_individual_methods(e, names_list, info, color_list)
