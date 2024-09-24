@@ -55,7 +55,7 @@ move.outlier <- function(x, d = NULL, fraction = 0.01) {
   return(x)
 }
 
-#' Multidimensional Embedding Visualization (MEV)
+#' Multidimensional Embedding Visualization (ADM)
 #'
 #' @param e A list of matrices, each representing a dimension reduction result.
 #' @param k.dim Number of dimensions to use. If NULL, uses the number of columns in the first matrix of e.
@@ -81,7 +81,7 @@ move.outlier <- function(x, d = NULL, fraction = 0.01) {
 #' @importFrom fitdistrplus fitdist
 #'
 #' @export
-mev <- function(e, k.dim = NULL, dist.power = 0.5, conn.prop = 0.02, raw.d.pwr = 0.5, 
+adm <- function(e, k.dim = NULL, dist.power = 0.5, conn.prop = 0.02, raw.d.pwr = 0.5, 
                 diffu.steps = NA, diffu.factor = 3.5, distr.template = "gamma", 
                 gamma.shape = 3, gamma.rate = 3, scale.dist = TRUE, 
                 symmetrize = "mean", dist.quantile = 0.25) {

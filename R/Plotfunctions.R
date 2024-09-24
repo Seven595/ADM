@@ -548,63 +548,50 @@ visualize_silhouette_width <- function(ASW_list, info, data_name, label_mapping 
   return(p)
 }
 
-#' Visualize ARI and NMI Comparison with Bar Plot
+#' Visualize ARI and NMI for ADM Method with Bar Plot
 #'
-#' This function generates a bar plot to compare ARI and NMI metrics across methods.
+#' This function generates a bar plot to visualize ARI and NMI metrics for the ADM method.
 #'
-#' @param ARI_list A list containing two elements: ARI and NMI scores for meta-spec and ADM methods.
+#' @param ARI_list A list containing one element: ARI and NMI scores for the ADM method.
 #' @param dataset A string naming the dataset being visualized.
 #'
 #' @return Invisibly returns a ggplot object visualizing ARI and NMI scores.
 #'
 #' @details
-#' The function combines the functionality of data preparation and plotting into one.
-#' It creates a bar plot using ggplot2, with metrics on the x-axis and their values on the y-axis.
-#' Bars are grouped and colored by the 'group' variable. The plot uses a minimal theme and predefined colors.
+#' The function creates a bar plot using ggplot2, with metrics on the x-axis and their values on the y-axis.
+#' The plot uses a minimal theme and a predefined color for the ADM method.
 #'
 #' @examples
 #' # Assuming necessary functions and data are available
-#' ARI_list <- list(
-#'   data.frame(ARI = 0.8, NMI = 0.9),
-#'   data.frame(ARI = 0.7, NMI = 0.8)
-#' )
+#' ARI_list <- list(data.frame(ARI = 0.8, NMI = 0.9))
 #' visualize_ari_nmi(ARI_list, "Example Dataset")
 #'
 #' @export
 visualize_ari_nmi <- function(ARI_list, dataset) {
   # Input validation
-  if (!is.list(ARI_list) || length(ARI_list) != 2) {
-    stop("ARI_list must be a list with exactly two elements")
-  }
-  if (!all(sapply(ARI_list, function(x) all(c("ARI", "NMI") %in% names(x))))) {
-    stop("Each element of ARI_list must be a data frame with 'ARI' and 'NMI' columns")
+  if (length(ARI_list) != 1 || !all(c("ARI", "NMI") %in% names(ARI_list[[1]]))) {
+    stop("ARI_list must be a list with one element, a data frame with 'ARI' and 'NMI' columns")
   }
   if (!is.character(dataset) || length(dataset) != 1) {
     stop("dataset must be a single string")
   }
 
   # Extract ARI and NMI data
-  ARI_viz <- ARI_list[[1]]
-  ARI_adm <- ARI_list[[2]]
-
-  # Combine data
-  data_combined <- dplyr::bind_rows(
-    cbind(ARI_viz, group = "meta-spec"),
-    cbind(ARI_adm, group = "ADM")
-  )
+  ARI_adm <- ARI_list[[1]]
 
   # Convert to long format
-  data_long <- tidyr::pivot_longer(data_combined,
+  data_long <- tidyr::pivot_longer(ARI_adm,
                                    cols = c("ARI", "NMI"),
                                    names_to = "Metric",
                                    values_to = "Value")
+  data_long$group <- "ADM"
 
   # Create the plot
   plot <- ggplot(data_long, aes(x = .data$Metric, y = .data$Value, fill = .data$group)) +
-    geom_bar(stat = "identity", position = position_dodge(width = 0.7), width = 0.6) +
+    geom_bar(stat = "identity", width = 0.6) +
     labs(title = dataset,
          x = NULL, y = "") +
-    scale_fill_manual(values = c("#4B8537", "#8669A9")) +
+    scale_fill_manual(values = c("#8669A9")) +
     scale_y_continuous(expand = expansion(mult = c(0, 0.05))) +
     theme_minimal() +
     theme(
