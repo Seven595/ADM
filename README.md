@@ -51,7 +51,7 @@ devtools::install_github("Seven595/ADM")
 
     
 
-## Tutorials
+## Basic Usage
 
 Here's a basic example of how to use ADMPackage:
 
@@ -85,6 +85,14 @@ p = visualize_individual_methods(e, names_list, info, color_list)
 # Visualize ADM results
 results[[3]]
 ```
+
+## Resources
+
+**Tutorial/Demo**: [Seven595/ADMReproduce (github.com)](https://github.com/Seven595/ADMReproduce) or [ADMReproduce/Reproduce at main · Seven595/ADMReproduce (github.com)](https://github.com/Seven595/ADMReproduce/tree/main/Reproduce)
+
+**Dataset and Reproduction:**[ADMReproduce/Reproduce at main · Seven595/ADMReproduce (github.com)](https://github.com/Seven595/ADMReproduce/tree/main/Reproduce)
+
+
 
 ## Main Functions
 
