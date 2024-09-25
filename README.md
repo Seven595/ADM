@@ -12,11 +12,17 @@ Next, we combine the diffusion distance matrices from all candidate methods usin
 
 ## Installation
 
-You can install the development version of ADMPackage from GitHub with:
+You can install the released version of ADMfrom Github with the following code:
 
 ```r
-# install.packages("devtools")
+# install devtools if necessary
+install.packages('devtools')
+
+# install the ADM package
 devtools::install_github("Seven595/ADM")
+
+# load package
+library(ADM)
 ```
 
 ## Features
@@ -71,7 +77,7 @@ candidate_result = candidate.out[[1]]
 names_list = candidate.out[[2]]
 
 # Calculate ADM dimension reduction results
-adm.out = adm(candidate_result)
+adm.out = ADM::adm(candidate_result)
 
 # Quantify ADM dimension reduction results
 results = process_and_visualize_meta_methods(adm.out, info, color_list)
