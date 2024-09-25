@@ -1,0 +1,26 @@
+adm                     Multidimensional Embedding Visualization (ADM)
+cal_ari_nmi             Calculate Adjusted Rand Index (ARI) and
+                        Normalized Mutual Information (NMI)
+cal_cci                 Calculate Cluster Conservation Index (CCI)
+candidate.visual        Perform Multiple Dimensionality Reduction
+                        Methods
+dataloader              Load and Prepare Dataset for Analysis
+dist.grp                Calculate distance-based group statistics
+get_mapping             Get label mapping for a dataset
+move.outlier            Move Outliers Function
+plot_cci_results        Plot Comparison of CCI Results
+plot_legend             Create a scatter plot with a custom legend
+process_and_visualize_meta_methods
+                        Process and Visualize Meta-Methods
+simplify_labels         Simplify labels based on a provided mapping
+umap5                   Perform UMAP and calculate distance-based group
+                        statistics
+visualization_with_label
+                        Create a labeled scatter plot from UMAP
+                        visualization
+visualize_ari_nmi       Visualize ARI and NMI Comparison with Bar Plot
+visualize_individual_methods
+                        Visualize Individual Methods
+visualize_silhouette_width
+                        Visualize Silhouette Width Comparison
+zp.quantile             Quantile Normalization Function

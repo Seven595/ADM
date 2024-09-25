@@ -1,0 +1,24 @@
+Package: ADM
+Title: Advanced Distance Measurement for High-Dimensional Data Analysis
+Version: 0.99.0
+Authors@R: 
+    person("Junning", "Feng", email = "jnfeng3522@gmail.com", role = c("aut", "cre"))
+Description: ADM provides a suite of advanced distance measurement methods for high-dimensional data analysis. The package implements various dimensionality reduction and visualization techniques, including UMAP, t-SNE, and PCA, along with tools for evaluating the performance of these methods. Additionally, ADM includes functions for calculating inter-group similarities and custom ggplot2 themes for data visualization.
+License: Artistic-2.0
+Encoding: UTF-8
+Depends: R (>= 4.3.0)
+Imports: stats, MASS, rARPACK, utils, grDevices, graphics, methods,
+        phateR, ggplot2, mclust, cluster, magrittr, tidyr, dplyr,
+        ggrepel, BiocParallel, uwot, aricode, DDoutlier, diffudist,
+        fitdistrplus, igraph, Rtsne, dimRed
+Suggests: knitr, rmarkdown, MixGHD, testthat (>= 3.0.0), RDRToolbox,
+        class, dbscan, survival, umap
+Config/testthat/edition: 3
+VignetteBuilder: knitr
+biocViews: Visualization, DimensionReduction, FeatureExtraction,
+        Clustering
+RoxygenNote: 7.3.2
+NeedsCompilation: no
+Packaged: 2024-09-25 02:53:21 UTC; 78695
+Author: Junning Feng [aut, cre]
+Maintainer: Junning Feng <jnfeng3522@gmail.com>

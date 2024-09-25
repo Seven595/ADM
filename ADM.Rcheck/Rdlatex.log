@@ -1,0 +1,330 @@
+Hmm ... looks like a package
+Converting parsed Rd's to LaTeX .
+Creating pdf output from LaTeX ...
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex)
+ restricted \write18 enabled.
+entering extended mode
+(./Rd2.tex
+LaTeX2e <2022-11-01> patch level 1
+L3 programming layer <2023-02-22>
+(d:/app/TexLive/2023/texmf-dist/tex/latex/base/book.cls
+Document Class: book 2022/07/02 v1.4n Standard LaTeX document class
+(d:/app/TexLive/2023/texmf-dist/tex/latex/base/bk10.clo))
+(d:/app/R/R-4.3.1/share/texmf/tex/latex/Rd.sty
+(d:/app/TexLive/2023/texmf-dist/tex/latex/base/ifthen.sty)
+(d:/app/TexLive/2023/texmf-dist/tex/latex/tools/longtable.sty)
+(d:/app/TexLive/2023/texmf-dist/tex/latex/tools/bm.sty)
+(d:/app/TexLive/2023/texmf-dist/tex/latex/base/alltt.sty)
+(d:/app/TexLive/2023/texmf-dist/tex/latex/tools/verbatim.sty)
+(d:/app/TexLive/2023/texmf-dist/tex/latex/url/url.sty)
+(d:/app/TexLive/2023/texmf-dist/tex/latex/base/textcomp.sty)
+(d:/app/TexLive/2023/texmf-dist/tex/latex/amsmath/amsmath.sty
+For additional information on amsmath, use the `?' option.
+(d:/app/TexLive/2023/texmf-dist/tex/latex/amsmath/amstext.sty
+(d:/app/TexLive/2023/texmf-dist/tex/latex/amsmath/amsgen.sty))
+(d:/app/TexLive/2023/texmf-dist/tex/latex/amsmath/amsbsy.sty)
+(d:/app/TexLive/2023/texmf-dist/tex/latex/amsmath/amsopn.sty))
+(d:/app/TexLive/2023/texmf-dist/tex/latex/amsfonts/amsfonts.sty)
+(d:/app/TexLive/2023/texmf-dist/tex/latex/amsfonts/amssymb.sty)
+(d:/app/TexLive/2023/texmf-dist/tex/latex/jknapltx/mathrsfs.sty)
+(d:/app/TexLive/2023/texmf-dist/tex/generic/iftex/iftex.sty)
+(d:/app/TexLive/2023/texmf-dist/tex/latex/base/fontenc.sty)
+(d:/app/TexLive/2023/texmf-dist/tex/latex/psnfss/times.sty)
+(d:/app/TexLive/2023/texmf-dist/tex/latex/inconsolata/zi4.sty
+`inconsolata-zi4' v1.12, 2019/05/17 Text macros for Inconsolata (msharpe)
+(d:/app/TexLive/2023/texmf-dist/tex/latex/xkeyval/xkeyval.sty
+(d:/app/TexLive/2023/texmf-dist/tex/generic/xkeyval/xkeyval.tex
+(d:/app/TexLive/2023/texmf-dist/tex/generic/xkeyval/xkvutils.tex
+(d:/app/TexLive/2023/texmf-dist/tex/generic/xkeyval/keyval.tex)))))
+(d:/app/TexLive/2023/texmf-dist/tex/latex/graphics/color.sty
+(d:/app/TexLive/2023/texmf-dist/tex/latex/graphics-cfg/color.cfg)
+(d:/app/TexLive/2023/texmf-dist/tex/latex/graphics-def/pdftex.def)
+(d:/app/TexLive/2023/texmf-dist/tex/latex/graphics/mathcolor.ltx))
+(d:/app/TexLive/2023/texmf-dist/tex/latex/hyperref/hyperref.sty
+(d:/app/TexLive/2023/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty)
+(d:/app/TexLive/2023/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty
+(d:/app/TexLive/2023/texmf-dist/tex/generic/infwarerr/infwarerr.sty))
+(d:/app/TexLive/2023/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty)
+(d:/app/TexLive/2023/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty)
+(d:/app/TexLive/2023/texmf-dist/tex/generic/pdfescape/pdfescape.sty)
+(d:/app/TexLive/2023/texmf-dist/tex/latex/hycolor/hycolor.sty)
+(d:/app/TexLive/2023/texmf-dist/tex/latex/letltxmacro/letltxmacro.sty)
+(d:/app/TexLive/2023/texmf-dist/tex/latex/auxhook/auxhook.sty)
+(d:/app/TexLive/2023/texmf-dist/tex/latex/hyperref/nameref.sty
+(d:/app/TexLive/2023/texmf-dist/tex/latex/refcount/refcount.sty)
+(d:/app/TexLive/2023/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
+(d:/app/TexLive/2023/texmf-dist/tex/latex/kvoptions/kvoptions.sty)))
+(d:/app/TexLive/2023/texmf-dist/tex/latex/hyperref/pd1enc.def)
+(d:/app/TexLive/2023/texmf-dist/tex/generic/intcalc/intcalc.sty)
+(d:/app/TexLive/2023/texmf-dist/tex/generic/etexcmds/etexcmds.sty)
+(d:/app/TexLive/2023/texmf-dist/tex/latex/hyperref/puenc.def)
+(d:/app/TexLive/2023/texmf-dist/tex/generic/bitset/bitset.sty
+(d:/app/TexLive/2023/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty))
+(d:/app/TexLive/2023/texmf-dist/tex/latex/base/atbegshi-ltx.sty))
+(d:/app/TexLive/2023/texmf-dist/tex/latex/hyperref/hpdftex.def
+(d:/app/TexLive/2023/texmf-dist/tex/latex/base/atveryend-ltx.sty)
+(d:/app/TexLive/2023/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
+(d:/app/TexLive/2023/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty))))
+ (d:/app/TexLive/2023/texmf-dist/tex/latex/base/makeidx.sty)
+(d:/app/TexLive/2023/texmf-dist/tex/latex/base/inputenc.sty)
+Writing index file Rd2.idx
+(d:/app/TexLive/2023/texmf-dist/tex/latex/psnfss/t1ptm.fd)
+(d:/app/TexLive/2023/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def)
+No file Rd2.aux.
+(d:/app/TexLive/2023/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+) (d:/app/TexLive/2023/texmf-dist/tex/latex/inconsolata/t1zi4.fd)
+(d:/app/TexLive/2023/texmf-dist/tex/latex/psnfss/t1phv.fd)
+No file Rd2.toc.
+(d:/app/TexLive/2023/texmf-dist/tex/latex/amsfonts/umsa.fd)
+(d:/app/TexLive/2023/texmf-dist/tex/latex/amsfonts/umsb.fd)
+(d:/app/TexLive/2023/texmf-dist/tex/latex/jknapltx/ursfs.fd) [1{d:/app/TexLive/
+2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{d:/app/TexLive/2023/texmf-di
+st/fonts/enc/dvips/base/8r.enc}{d:/app/TexLive/2023/texmf-dist/fonts/enc/dvips/
+inconsolata/i4-t1-0.enc}] [2] [3]
+Overfull \hbox (19.73999pt too wide) in paragraph at lines 195--195
+ []  \T1/zi4/m/n/10 methods = c("PCA", "MDS", "iMDS", "Sammon", "HLLE", "Isomap
+", "kPCA", "LEIM", "UMAP",[] 
+[4] (d:/app/TexLive/2023/texmf-dist/tex/latex/inconsolata/ts1zi4.fd)
+Overfull \hbox (4.17677pt too wide) in paragraph at lines 275--277
+[]\T1/ptm/m/n/10 A string spec-i-fy-ing the dataset to load. Sup-ported dataset
+s are: "Oi-hane", "Gutier-
+[5{d:/app/TexLive/2023/texmf-dist/fonts/enc/dvips/inconsolata/i4-ts1.enc}]
+[6] [7] [8] [9] [10] [11] [12] [13] [14] [15] [16]
+No file Rd2.ind.
+[17] (./Rd2.aux)
+
+Package rerunfilecheck Warning: File `Rd2.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+ )
+(see the transcript file for additional information)<d:/app/TexLive/2023/texmf-
+dist/fonts/type1/public/inconsolata/Inconsolata-zi4r.pfb><d:/app/TexLive/2023/t
+exmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb><d:/app/TexLive/2023/texmf-dist/f
+onts/type1/urw/times/utmb8a.pfb><d:/app/TexLive/2023/texmf-dist/fonts/type1/urw
+/times/utmr8a.pfb><d:/app/TexLive/2023/texmf-dist/fonts/type1/urw/times/utmr8a.
+pfb><d:/app/TexLive/2023/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on Rd2.pdf (17 pages, 111798 bytes).
+Transcript written on Rd2.log.
+This is makeindex, version 2.17 [TeX Live 2023] (kpathsea + Thai support).
+Scanning input file Rd2.idx....done (20 entries accepted, 0 rejected).
+Sorting entries....done (90 comparisons).
+Generating output file Rd2.ind....done (56 lines written, 0 warnings).
+Output written in Rd2.ind.
+Transcript written in Rd2.ilg.
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex)
+ restricted \write18 enabled.
+entering extended mode
+(./Rd2.tex
+LaTeX2e <2022-11-01> patch level 1
+L3 programming layer <2023-02-22>
+(d:/app/TexLive/2023/texmf-dist/tex/latex/base/book.cls
+Document Class: book 2022/07/02 v1.4n Standard LaTeX document class
+(d:/app/TexLive/2023/texmf-dist/tex/latex/base/bk10.clo))
+(d:/app/R/R-4.3.1/share/texmf/tex/latex/Rd.sty
+(d:/app/TexLive/2023/texmf-dist/tex/latex/base/ifthen.sty)
+(d:/app/TexLive/2023/texmf-dist/tex/latex/tools/longtable.sty)
+(d:/app/TexLive/2023/texmf-dist/tex/latex/tools/bm.sty)
+(d:/app/TexLive/2023/texmf-dist/tex/latex/base/alltt.sty)
+(d:/app/TexLive/2023/texmf-dist/tex/latex/tools/verbatim.sty)
+(d:/app/TexLive/2023/texmf-dist/tex/latex/url/url.sty)
+(d:/app/TexLive/2023/texmf-dist/tex/latex/base/textcomp.sty)
+(d:/app/TexLive/2023/texmf-dist/tex/latex/amsmath/amsmath.sty
+For additional information on amsmath, use the `?' option.
+(d:/app/TexLive/2023/texmf-dist/tex/latex/amsmath/amstext.sty
+(d:/app/TexLive/2023/texmf-dist/tex/latex/amsmath/amsgen.sty))
+(d:/app/TexLive/2023/texmf-dist/tex/latex/amsmath/amsbsy.sty)
+(d:/app/TexLive/2023/texmf-dist/tex/latex/amsmath/amsopn.sty))
+(d:/app/TexLive/2023/texmf-dist/tex/latex/amsfonts/amsfonts.sty)
+(d:/app/TexLive/2023/texmf-dist/tex/latex/amsfonts/amssymb.sty)
+(d:/app/TexLive/2023/texmf-dist/tex/latex/jknapltx/mathrsfs.sty)
+(d:/app/TexLive/2023/texmf-dist/tex/generic/iftex/iftex.sty)
+(d:/app/TexLive/2023/texmf-dist/tex/latex/base/fontenc.sty)
+(d:/app/TexLive/2023/texmf-dist/tex/latex/psnfss/times.sty)
+(d:/app/TexLive/2023/texmf-dist/tex/latex/inconsolata/zi4.sty
+`inconsolata-zi4' v1.12, 2019/05/17 Text macros for Inconsolata (msharpe)
+(d:/app/TexLive/2023/texmf-dist/tex/latex/xkeyval/xkeyval.sty
+(d:/app/TexLive/2023/texmf-dist/tex/generic/xkeyval/xkeyval.tex
+(d:/app/TexLive/2023/texmf-dist/tex/generic/xkeyval/xkvutils.tex
+(d:/app/TexLive/2023/texmf-dist/tex/generic/xkeyval/keyval.tex)))))
+(d:/app/TexLive/2023/texmf-dist/tex/latex/graphics/color.sty
+(d:/app/TexLive/2023/texmf-dist/tex/latex/graphics-cfg/color.cfg)
+(d:/app/TexLive/2023/texmf-dist/tex/latex/graphics-def/pdftex.def)
+(d:/app/TexLive/2023/texmf-dist/tex/latex/graphics/mathcolor.ltx))
+(d:/app/TexLive/2023/texmf-dist/tex/latex/hyperref/hyperref.sty
+(d:/app/TexLive/2023/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty)
+(d:/app/TexLive/2023/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty
+(d:/app/TexLive/2023/texmf-dist/tex/generic/infwarerr/infwarerr.sty))
+(d:/app/TexLive/2023/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty)
+(d:/app/TexLive/2023/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty)
+(d:/app/TexLive/2023/texmf-dist/tex/generic/pdfescape/pdfescape.sty)
+(d:/app/TexLive/2023/texmf-dist/tex/latex/hycolor/hycolor.sty)
+(d:/app/TexLive/2023/texmf-dist/tex/latex/letltxmacro/letltxmacro.sty)
+(d:/app/TexLive/2023/texmf-dist/tex/latex/auxhook/auxhook.sty)
+(d:/app/TexLive/2023/texmf-dist/tex/latex/hyperref/nameref.sty
+(d:/app/TexLive/2023/texmf-dist/tex/latex/refcount/refcount.sty)
+(d:/app/TexLive/2023/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
+(d:/app/TexLive/2023/texmf-dist/tex/latex/kvoptions/kvoptions.sty)))
+(d:/app/TexLive/2023/texmf-dist/tex/latex/hyperref/pd1enc.def)
+(d:/app/TexLive/2023/texmf-dist/tex/generic/intcalc/intcalc.sty)
+(d:/app/TexLive/2023/texmf-dist/tex/generic/etexcmds/etexcmds.sty)
+(d:/app/TexLive/2023/texmf-dist/tex/latex/hyperref/puenc.def)
+(d:/app/TexLive/2023/texmf-dist/tex/generic/bitset/bitset.sty
+(d:/app/TexLive/2023/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty))
+(d:/app/TexLive/2023/texmf-dist/tex/latex/base/atbegshi-ltx.sty))
+(d:/app/TexLive/2023/texmf-dist/tex/latex/hyperref/hpdftex.def
+(d:/app/TexLive/2023/texmf-dist/tex/latex/base/atveryend-ltx.sty)
+(d:/app/TexLive/2023/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
+(d:/app/TexLive/2023/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty))))
+ (d:/app/TexLive/2023/texmf-dist/tex/latex/base/makeidx.sty)
+(d:/app/TexLive/2023/texmf-dist/tex/latex/base/inputenc.sty)
+Writing index file Rd2.idx
+(d:/app/TexLive/2023/texmf-dist/tex/latex/psnfss/t1ptm.fd)
+(d:/app/TexLive/2023/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def)
+(./Rd2.aux) (d:/app/TexLive/2023/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+
+[Loading MPS to PDF converter (version 2006.09.02).]
+) (./Rd2.out) (./Rd2.out)
+(d:/app/TexLive/2023/texmf-dist/tex/latex/inconsolata/t1zi4.fd)
+(d:/app/TexLive/2023/texmf-dist/tex/latex/psnfss/t1phv.fd) (./Rd2.toc
+(d:/app/TexLive/2023/texmf-dist/tex/latex/amsfonts/umsa.fd)
+(d:/app/TexLive/2023/texmf-dist/tex/latex/amsfonts/umsb.fd)
+(d:/app/TexLive/2023/texmf-dist/tex/latex/jknapltx/ursfs.fd) [1{d:/app/TexLive/
+2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{d:/app/TexLive/2023/texmf-di
+st/fonts/enc/dvips/base/8r.enc}{d:/app/TexLive/2023/texmf-dist/fonts/enc/dvips/
+inconsolata/i4-t1-0.enc}]) [2] [3]
+Overfull \hbox (19.73999pt too wide) in paragraph at lines 195--195
+ []  \T1/zi4/m/n/10 methods = c("PCA", "MDS", "iMDS", "Sammon", "HLLE", "Isomap
+", "kPCA", "LEIM", "UMAP",[] 
+[4] (d:/app/TexLive/2023/texmf-dist/tex/latex/inconsolata/ts1zi4.fd) [5{d:/app/
+TexLive/2023/texmf-dist/fonts/enc/dvips/inconsolata/i4-ts1.enc}]
+Overfull \hbox (4.17677pt too wide) in paragraph at lines 275--277
+[]\T1/ptm/m/n/10 A string spec-i-fy-ing the dataset to load. Sup-ported dataset
+s are: "Oi-hane", "Gutier-
+[6] [7] [8] [9] [10] [11] [12] [13] [14] [15] [16] (./Rd2.ind [17] [18])
+(./Rd2.aux)
+
+Package rerunfilecheck Warning: File `Rd2.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+ )
+(see the transcript file for additional information)<d:/app/TexLive/2023/texmf-
+dist/fonts/type1/public/inconsolata/Inconsolata-zi4r.pfb><d:/app/TexLive/2023/t
+exmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><d:/app/TexLive/2023/texmf-
+dist/fonts/type1/urw/helvetic/uhvr8a.pfb><d:/app/TexLive/2023/texmf-dist/fonts/
+type1/urw/times/utmb8a.pfb><d:/app/TexLive/2023/texmf-dist/fonts/type1/urw/time
+s/utmr8a.pfb><d:/app/TexLive/2023/texmf-dist/fonts/type1/urw/times/utmr8a.pfb><
+d:/app/TexLive/2023/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on Rd2.pdf (18 pages, 124263 bytes).
+Transcript written on Rd2.log.
+This is makeindex, version 2.17 [TeX Live 2023] (kpathsea + Thai support).
+Scanning input file Rd2.idx....done (20 entries accepted, 0 rejected).
+Sorting entries....done (90 comparisons).
+Generating output file Rd2.ind....done (56 lines written, 0 warnings).
+Output written in Rd2.ind.
+Transcript written in Rd2.ilg.
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex)
+ restricted \write18 enabled.
+entering extended mode
+(./Rd2.tex
+LaTeX2e <2022-11-01> patch level 1
+L3 programming layer <2023-02-22>
+(d:/app/TexLive/2023/texmf-dist/tex/latex/base/book.cls
+Document Class: book 2022/07/02 v1.4n Standard LaTeX document class
+(d:/app/TexLive/2023/texmf-dist/tex/latex/base/bk10.clo))
+(d:/app/R/R-4.3.1/share/texmf/tex/latex/Rd.sty
+(d:/app/TexLive/2023/texmf-dist/tex/latex/base/ifthen.sty)
+(d:/app/TexLive/2023/texmf-dist/tex/latex/tools/longtable.sty)
+(d:/app/TexLive/2023/texmf-dist/tex/latex/tools/bm.sty)
+(d:/app/TexLive/2023/texmf-dist/tex/latex/base/alltt.sty)
+(d:/app/TexLive/2023/texmf-dist/tex/latex/tools/verbatim.sty)
+(d:/app/TexLive/2023/texmf-dist/tex/latex/url/url.sty)
+(d:/app/TexLive/2023/texmf-dist/tex/latex/base/textcomp.sty)
+(d:/app/TexLive/2023/texmf-dist/tex/latex/amsmath/amsmath.sty
+For additional information on amsmath, use the `?' option.
+(d:/app/TexLive/2023/texmf-dist/tex/latex/amsmath/amstext.sty
+(d:/app/TexLive/2023/texmf-dist/tex/latex/amsmath/amsgen.sty))
+(d:/app/TexLive/2023/texmf-dist/tex/latex/amsmath/amsbsy.sty)
+(d:/app/TexLive/2023/texmf-dist/tex/latex/amsmath/amsopn.sty))
+(d:/app/TexLive/2023/texmf-dist/tex/latex/amsfonts/amsfonts.sty)
+(d:/app/TexLive/2023/texmf-dist/tex/latex/amsfonts/amssymb.sty)
+(d:/app/TexLive/2023/texmf-dist/tex/latex/jknapltx/mathrsfs.sty)
+(d:/app/TexLive/2023/texmf-dist/tex/generic/iftex/iftex.sty)
+(d:/app/TexLive/2023/texmf-dist/tex/latex/base/fontenc.sty)
+(d:/app/TexLive/2023/texmf-dist/tex/latex/psnfss/times.sty)
+(d:/app/TexLive/2023/texmf-dist/tex/latex/inconsolata/zi4.sty
+`inconsolata-zi4' v1.12, 2019/05/17 Text macros for Inconsolata (msharpe)
+(d:/app/TexLive/2023/texmf-dist/tex/latex/xkeyval/xkeyval.sty
+(d:/app/TexLive/2023/texmf-dist/tex/generic/xkeyval/xkeyval.tex
+(d:/app/TexLive/2023/texmf-dist/tex/generic/xkeyval/xkvutils.tex
+(d:/app/TexLive/2023/texmf-dist/tex/generic/xkeyval/keyval.tex)))))
+(d:/app/TexLive/2023/texmf-dist/tex/latex/graphics/color.sty
+(d:/app/TexLive/2023/texmf-dist/tex/latex/graphics-cfg/color.cfg)
+(d:/app/TexLive/2023/texmf-dist/tex/latex/graphics-def/pdftex.def)
+(d:/app/TexLive/2023/texmf-dist/tex/latex/graphics/mathcolor.ltx))
+(d:/app/TexLive/2023/texmf-dist/tex/latex/hyperref/hyperref.sty
+(d:/app/TexLive/2023/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty)
+(d:/app/TexLive/2023/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty
+(d:/app/TexLive/2023/texmf-dist/tex/generic/infwarerr/infwarerr.sty))
+(d:/app/TexLive/2023/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty)
+(d:/app/TexLive/2023/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty)
+(d:/app/TexLive/2023/texmf-dist/tex/generic/pdfescape/pdfescape.sty)
+(d:/app/TexLive/2023/texmf-dist/tex/latex/hycolor/hycolor.sty)
+(d:/app/TexLive/2023/texmf-dist/tex/latex/letltxmacro/letltxmacro.sty)
+(d:/app/TexLive/2023/texmf-dist/tex/latex/auxhook/auxhook.sty)
+(d:/app/TexLive/2023/texmf-dist/tex/latex/hyperref/nameref.sty
+(d:/app/TexLive/2023/texmf-dist/tex/latex/refcount/refcount.sty)
+(d:/app/TexLive/2023/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
+(d:/app/TexLive/2023/texmf-dist/tex/latex/kvoptions/kvoptions.sty)))
+(d:/app/TexLive/2023/texmf-dist/tex/latex/hyperref/pd1enc.def)
+(d:/app/TexLive/2023/texmf-dist/tex/generic/intcalc/intcalc.sty)
+(d:/app/TexLive/2023/texmf-dist/tex/generic/etexcmds/etexcmds.sty)
+(d:/app/TexLive/2023/texmf-dist/tex/latex/hyperref/puenc.def)
+(d:/app/TexLive/2023/texmf-dist/tex/generic/bitset/bitset.sty
+(d:/app/TexLive/2023/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty))
+(d:/app/TexLive/2023/texmf-dist/tex/latex/base/atbegshi-ltx.sty))
+(d:/app/TexLive/2023/texmf-dist/tex/latex/hyperref/hpdftex.def
+(d:/app/TexLive/2023/texmf-dist/tex/latex/base/atveryend-ltx.sty)
+(d:/app/TexLive/2023/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
+(d:/app/TexLive/2023/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty))))
+ (d:/app/TexLive/2023/texmf-dist/tex/latex/base/makeidx.sty)
+(d:/app/TexLive/2023/texmf-dist/tex/latex/base/inputenc.sty)
+Writing index file Rd2.idx
+(d:/app/TexLive/2023/texmf-dist/tex/latex/psnfss/t1ptm.fd)
+(d:/app/TexLive/2023/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def)
+(./Rd2.aux) (d:/app/TexLive/2023/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+
+[Loading MPS to PDF converter (version 2006.09.02).]
+) (./Rd2.out) (./Rd2.out)
+(d:/app/TexLive/2023/texmf-dist/tex/latex/inconsolata/t1zi4.fd)
+(d:/app/TexLive/2023/texmf-dist/tex/latex/psnfss/t1phv.fd) (./Rd2.toc
+(d:/app/TexLive/2023/texmf-dist/tex/latex/amsfonts/umsa.fd)
+(d:/app/TexLive/2023/texmf-dist/tex/latex/amsfonts/umsb.fd)
+(d:/app/TexLive/2023/texmf-dist/tex/latex/jknapltx/ursfs.fd) [1{d:/app/TexLive/
+2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{d:/app/TexLive/2023/texmf-di
+st/fonts/enc/dvips/base/8r.enc}{d:/app/TexLive/2023/texmf-dist/fonts/enc/dvips/
+inconsolata/i4-t1-0.enc}]) [2] [3]
+Overfull \hbox (19.73999pt too wide) in paragraph at lines 195--195
+ []  \T1/zi4/m/n/10 methods = c("PCA", "MDS", "iMDS", "Sammon", "HLLE", "Isomap
+", "kPCA", "LEIM", "UMAP",[] 
+[4] (d:/app/TexLive/2023/texmf-dist/tex/latex/inconsolata/ts1zi4.fd) [5{d:/app/
+TexLive/2023/texmf-dist/fonts/enc/dvips/inconsolata/i4-ts1.enc}]
+Overfull \hbox (4.17677pt too wide) in paragraph at lines 275--277
+[]\T1/ptm/m/n/10 A string spec-i-fy-ing the dataset to load. Sup-ported dataset
+s are: "Oi-hane", "Gutier-
+[6] [7] [8] [9] [10] [11] [12] [13] [14] [15] [16] (./Rd2.ind [17] [18])
+(./Rd2.aux) )
+(see the transcript file for additional information)<d:/app/TexLive/2023/texmf-
+dist/fonts/type1/public/inconsolata/Inconsolata-zi4r.pfb><d:/app/TexLive/2023/t
+exmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><d:/app/TexLive/2023/texmf-
+dist/fonts/type1/urw/helvetic/uhvr8a.pfb><d:/app/TexLive/2023/texmf-dist/fonts/
+type1/urw/times/utmb8a.pfb><d:/app/TexLive/2023/texmf-dist/fonts/type1/urw/time
+s/utmr8a.pfb><d:/app/TexLive/2023/texmf-dist/fonts/type1/urw/times/utmr8a.pfb><
+d:/app/TexLive/2023/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on Rd2.pdf (18 pages, 124935 bytes).
+Transcript written on Rd2.log.
+Saving output to 'ADM-manual.pdf' ...
+Done
+You may want to clean up by 'rm -Rf C:/Users/78695/AppData/Local/Temp/RtmpoxHPPp/Rd2pdf108c71d3fc4'
