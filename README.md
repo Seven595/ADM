@@ -16,7 +16,7 @@ You can install the development version of ADMPackage from GitHub with:
 
 ```r
 # install.packages("devtools")
-devtools::install_github("Seven595/ADMPackage")
+devtools::install_github("Seven595/ADM")
 ```
 
 ## Features
