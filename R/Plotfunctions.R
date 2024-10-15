@@ -418,11 +418,10 @@ simplify_labels <- function(info, mapping = NULL) {
 #' color_list <- c("A" = "red", "B" = "blue", "C" = "green")
 #' results <- visualize_individual_methods(matrices, method_names, info, color_list, k = 3)
 #'
-#' @export
 #' @importFrom gridExtra grid.arrange
 #' @importFrom cluster silhouette
 #' @importFrom stats kmeans dist
-library(gridExtra)
+#' @export
 
 visualize_individual_methods <- function(matrices, method_names, info = NULL, color_list = NULL, k, seed = 42) {
   if (length(matrices) != length(method_names)) {
