@@ -22,12 +22,17 @@ process_and_visualize_meta_methods(
 
 \item{k}{The number of clusters for k-means clustering.}
 
-\item{color_list}{A list of colors for visualization.}
+\item{color_list}{A named vector of colors for visualization, names should match unique values in info.}
 
 \item{seed}{An integer seed for reproducibility. Default is 2024.}
 }
 \value{
-A list containing ARI and NMI scores, silhouette widths, and UMAP coordinates for meta-spec and/or ADM methods.
+A list containing:
+  \item{ARI_list}{A list of data frames with ARI and NMI scores for each method}
+  \item{ASW_list}{A list of average silhouette widths for each method}
+  \item{umap_adm}{UMAP coordinates for ADM method}
+  \item{plot}{A list of ggplot objects for each method}
+  \item{umap_viz}{UMAP coordinates for meta-spec method (if ensemble.out is provided)}
 }
 \description{
 Process and Visualize Meta-Methods
@@ -38,7 +43,7 @@ If ensemble.out is NULL, only ADM method is executed.
 It performs UMAP dimensionality reduction, k-means clustering, and calculates various metrics.
 }
 \note{
-This function requires the following packages: umap, mclust, aricode, cluster
+This function requires the following packages: uwot, mclust, aricode, cluster
 }
 \examples{
 # This function requires specific input structures and external functions

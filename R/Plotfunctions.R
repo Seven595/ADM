@@ -469,10 +469,15 @@ visualize_individual_methods <- function(matrices, method_names, info = NULL, co
 #' @param mev.out Output from MEV method (assumed to contain $diffu.dist).
 #' @param info A vector of true class labels.
 #' @param k The number of clusters for k-means clustering.
-#' @param color_list A list of colors for visualization.
+#' @param color_list A named vector of colors for visualization, names should match unique values in info.
 #' @param seed An integer seed for reproducibility. Default is 2024.
 #'
-#' @return A list containing ARI and NMI scores, silhouette widths, and UMAP coordinates for meta-spec and/or ADM methods.
+#' @return A list containing:
+#'   \item{ARI_list}{A list of data frames with ARI and NMI scores for each method}
+#'   \item{ASW_list}{A list of average silhouette widths for each method}
+#'   \item{umap_adm}{UMAP coordinates for ADM method}
+#'   \item{plot}{A list of ggplot objects for each method}
+#'   \item{umap_viz}{UMAP coordinates for meta-spec method (if ensemble.out is provided)}
 #'
 #' @details
 #' This function processes and visualizes results from two meta-methods: meta-spec and ADM.
@@ -480,7 +485,13 @@ visualize_individual_methods <- function(matrices, method_names, info = NULL, co
 #' It performs UMAP dimensionality reduction, k-means clustering, and calculates various metrics.
 #'
 #' @note
-#' This function requires the following packages: umap, mclust, aricode, cluster
+#' This function requires the following packages: uwot, mclust, aricode, cluster
+#'
+#' @importFrom uwot umap
+#' @importFrom stats dist kmeans
+#' @importFrom cluster silhouette
+#' @importFrom mclust adjustedRandIndex
+#' @importFrom aricode NMI
 #'
 #' @examples
 #' # This function requires specific input structures and external functions
@@ -509,11 +520,7 @@ process_and_visualize_meta_methods <- function(mev.out, ensemble.out = NULL, inf
   if (!is.null(ensemble.out)) {
     method <- "meta-spec"
     umap_viz0 <- uwot::umap(ensemble.out$ensemble.dist.mat)
-    cluster_viz <- stats::kmeans(umap_viz0, centers = k)
-    ARI <- mclust::adjustedRandIndex(info, cluster_viz$cluster)
-    NMI <- aricode::NMI(info, cluster_viz$cluster)
-    ARI_list[[1]] <- data.frame(ARI = ARI, NMI = NMI)
-    print(ARI_list[[1]])
+    ARI_list[[1]] <- cal_ari_nmi(umap_viz0, k, method, seed, info)
     ASW_list[[1]] <- cluster::silhouette(as.numeric(factor(info)), dist = stats::dist(umap_viz0))[, 3]
     umap_viz <- as.data.frame(umap_viz0)
     plots[[1]] = visualization_func(umap_viz, method, color_list, info)
