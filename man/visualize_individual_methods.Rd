@@ -27,7 +27,7 @@ visualize_individual_methods(
 \item{seed}{An optional seed for reproducibility (default is 42).}
 }
 \value{
-A list of results for each method, including:
+A list of results for each method. Each element of the list contains:
   \item{plot}{A ggplot object representing the scatter plot}
   \item{ari}{The Adjusted Rand Index}
   \item{nmi}{The Normalized Mutual Information}
@@ -35,7 +35,12 @@ A list of results for each method, including:
 }
 \description{
 This function creates scatter plots for multiple matrices using different methods,
-and calculates ARI, NMI, and silhouette scores for each method.
+and calculates ARI, NMI, and silhouette scores for each method. It prints the
+average silhouette width and the plot for each method during execution.
+}
+\details{
+This function will print the average silhouette width and display
+         the plot for each method during execution.
 }
 \examples{
 matrices <- list(matrix(rnorm(200), 100, 2), matrix(rnorm(200), 100, 2))

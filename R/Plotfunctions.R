@@ -396,7 +396,8 @@ simplify_labels <- function(info, mapping = NULL) {
 #' Visualize Individual Methods
 #'
 #' This function creates scatter plots for multiple matrices using different methods,
-#' and calculates ARI, NMI, and silhouette scores for each method.
+#' and calculates ARI, NMI, and silhouette scores for each method. It prints the
+#' average silhouette width and the plot for each method during execution.
 #'
 #' @param matrices A list of matrices, each representing a different method's output.
 #' @param method_names A character vector specifying the names of the visualization methods.
@@ -405,11 +406,14 @@ simplify_labels <- function(info, mapping = NULL) {
 #' @param k The number of clusters for k-means clustering.
 #' @param seed An optional seed for reproducibility (default is 42).
 #'
-#' @return A list of results for each method, including:
+#' @return A list of results for each method. Each element of the list contains:
 #'   \item{plot}{A ggplot object representing the scatter plot}
 #'   \item{ari}{The Adjusted Rand Index}
 #'   \item{nmi}{The Normalized Mutual Information}
 #'   \item{silhouette}{The average silhouette width}
+#'
+#' @details This function will print the average silhouette width and display
+#'          the plot for each method during execution.
 #'
 #' @examples
 #' matrices <- list(matrix(rnorm(200), 100, 2), matrix(rnorm(200), 100, 2))
@@ -442,9 +446,9 @@ visualize_individual_methods <- function(matrices, method_names, info = NULL, co
     
     plot <- visualization_func(matrices[[i]], method_names[i], color_list, info)
     
-    cat("******", method_names[i], "******\n")
-    print(ari_nmi)
     cat("Average Silhouette Width:", avg_sil, "\n\n")
+    
+    print(plot)
     
     list(
       plot = plot,
@@ -454,7 +458,6 @@ visualize_individual_methods <- function(matrices, method_names, info = NULL, co
     )
   })
   
-  do.call(grid.arrange, c(lapply(results, function(x) x$plot), ncol = 2))
   return(results)
 }
 
