@@ -81,7 +81,7 @@ move.outlier <- function(x, d = NULL, fraction = 0.01) {
 #' @importFrom fitdistrplus fitdist
 #'
 #' @export
-adm <- function(e, k.dim = NULL, dist.power = 0.5, conn.prop = 0.02, raw.d.pwr = 0.5, 
+adm <- function(e, k.dim = NULL, dist.power = 0.5, conn.prop = 0.003, raw.d.pwr = 0.5, 
                 diffu.steps = NA, diffu.factor = 3.5, distr.template = "gamma", 
                 gamma.shape = 3, gamma.rate = 3, scale.dist = TRUE, 
                 symmetrize = "mean", dist.quantile = 0.25) {

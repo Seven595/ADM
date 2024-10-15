@@ -8,7 +8,7 @@ These diffusion distances leverage the dynamic Markov process to link the Euclid
 
 Next, we combine the diffusion distance matrices from all candidate methods using harmonic averaging and gamma distribution-based normalization to construct a comprehensive meta-diffusion-distance matrix. This distance leverages the advantages of individual candidate techniques, providing a robust representation of the dataset and enabling in-depth exploration of complex relationships among samples.
 
-![framework](framework.png)
+![framework](./man/figures/framework.png)
 
 ## Installation
 

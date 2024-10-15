@@ -8,7 +8,7 @@ adm(
   e,
   k.dim = NULL,
   dist.power = 0.5,
-  conn.prop = 0.02,
+  conn.prop = 0.003,
   raw.d.pwr = 0.5,
   diffu.steps = NA,
   diffu.factor = 3.5,

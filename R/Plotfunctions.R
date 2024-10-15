@@ -395,37 +395,68 @@ simplify_labels <- function(info, mapping = NULL) {
 
 #' Visualize Individual Methods
 #'
-#' This function creates scatter plots for multiple matrices using different methods.
+#' This function creates scatter plots for multiple matrices using different methods,
+#' and calculates ARI, NMI, and silhouette scores for each method.
 #'
 #' @param matrices A list of matrices, each representing a different method's output.
 #' @param method_names A character vector specifying the names of the visualization methods.
 #' @param info An optional vector of group labels for each data point. If not provided, all points will be the same color.
 #' @param color_list An optional named vector of colors for each group in 'info'. If not provided, a default color palette will be used.
+#' @param k The number of clusters for k-means clustering.
+#' @param seed An optional seed for reproducibility (default is 42).
 #'
-#' @return A list of ggplot objects representing the scatter plots.
+#' @return A list of results for each method, including:
+#'   \item{plot}{A ggplot object representing the scatter plot}
+#'   \item{ari}{The Adjusted Rand Index}
+#'   \item{nmi}{The Normalized Mutual Information}
+#'   \item{silhouette}{The average silhouette width}
 #'
 #' @examples
 #' matrices <- list(matrix(rnorm(200), 100, 2), matrix(rnorm(200), 100, 2))
 #' method_names <- c("Method1", "Method2")
-#' # Example with default coloring (all points same color)
-#' plots1 <- visualize_individual_methods(matrices, method_names)
-#'
-#' # Example with group information
 #' info <- sample(c("A", "B", "C"), 100, replace = TRUE)
 #' color_list <- c("A" = "red", "B" = "blue", "C" = "green")
-#' plots2 <- visualize_individual_methods(matrices, method_names, info, color_list)
+#' results <- visualize_individual_methods(matrices, method_names, info, color_list, k = 3)
 #'
 #' @export
-visualize_individual_methods <- function(matrices, method_names, info = NULL, color_list = NULL) {
+#' @importFrom gridExtra grid.arrange
+#' @importFrom cluster silhouette
+#' @importFrom stats kmeans dist
+library(gridExtra)
+
+visualize_individual_methods <- function(matrices, method_names, info = NULL, color_list = NULL, k, seed = 42) {
   if (length(matrices) != length(method_names)) {
     stop("The number of matrices must match the number of method names.")
   }
+  
+  if (!requireNamespace("cluster", quietly = TRUE)) {
+    stop("Package 'cluster' is needed for this function to work. Please install it.", call. = FALSE)
+  }
 
-  plots <- lapply(seq_along(matrices), function(i) {
-    visualization_func(matrices[[i]], method_names[i], color_list, info)
+  results <- lapply(seq_along(matrices), function(i) {
+    ari_nmi <- cal_ari_nmi(matrices[[i]], k, method_names[i], seed, info)
+    
+    set.seed(seed)
+    cluster_viz <- stats::kmeans(matrices[[i]], centers = k)
+    sil <- cluster::silhouette(cluster_viz$cluster, dist(matrices[[i]]))
+    avg_sil <- mean(sil[, 3])
+    
+    plot <- visualization_func(matrices[[i]], method_names[i], color_list, info)
+    
+    cat("******", method_names[i], "******\n")
+    print(ari_nmi)
+    cat("Average Silhouette Width:", avg_sil, "\n\n")
+    
+    list(
+      plot = plot,
+      ari = ari_nmi$ARI,
+      nmi = ari_nmi$NMI,
+      silhouette = avg_sil
+    )
   })
-
-  return(plots)
+  
+  do.call(grid.arrange, c(lapply(results, function(x) x$plot), ncol = 2))
+  return(results)
 }
 
 
@@ -469,6 +500,7 @@ process_and_visualize_meta_methods <- function(mev.out, ensemble.out = NULL, inf
   set.seed(seed)
   ARI_list <- list()
   ASW_list <- list()
+  plots <- list()
   print(paste("Running R version:", R.version$major, ".", R.version$minor, sep = ""))
 
   # Meta-spec method (only if ensemble.out is not NULL)
@@ -482,7 +514,7 @@ process_and_visualize_meta_methods <- function(mev.out, ensemble.out = NULL, inf
     print(ARI_list[[1]])
     ASW_list[[1]] <- cluster::silhouette(as.numeric(factor(info)), dist = stats::dist(umap_viz0))[, 3]
     umap_viz <- as.data.frame(umap_viz0)
-    visualization_func(umap_viz, method, color_list, info)
+    plots[[1]] = visualization_func(umap_viz, method, color_list, info)
   }
 
   # ADM method
@@ -491,12 +523,13 @@ process_and_visualize_meta_methods <- function(mev.out, ensemble.out = NULL, inf
   ARI_list[[length(ARI_list) + 1]] <- cal_ari_nmi(umap_adm0, k, method, seed, info)
   ASW_list[[length(ASW_list) + 1]] <- cluster::silhouette(as.numeric(factor(info)), dist = stats::dist(umap_adm0))[, 3]
   umap_adm <- as.data.frame(umap_adm0)
-  visualization_func(umap_adm, method, color_list, info)
+  plots[[length(ASW_list) + 1]] = visualization_func(umap_adm, method, color_list, info)
 
   result <- list(
     ARI_list = ARI_list,
     ASW_list = ASW_list,
-    umap_adm = umap_adm0
+    umap_adm = umap_adm0,
+    plot = plots
   )
 
   if (!is.null(ensemble.out)) {

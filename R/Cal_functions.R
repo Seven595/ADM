@@ -93,7 +93,7 @@ dist.grp <- function(distmat, grp, k=1:20)
 #'
 #' @importFrom stats dist eigen
 #' @export
-cal_cci <- function(ensemble.out, mev.out,info){
+cal_cci <- function(ensemble.out, mev.out, info){
     n_components = 3
     cci_list = list()
     cci_viz <- dist.grp(ensemble.out$ensemble.dist.mat, info, k=c(1,2,5,10,20))
