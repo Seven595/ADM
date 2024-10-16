@@ -519,6 +519,7 @@ process_and_visualize_meta_methods <- function(mev.out, ensemble.out = NULL, inf
   # Meta-spec method (only if ensemble.out is not NULL)
   if (!is.null(ensemble.out)) {
     method <- "meta-spec"
+    set.seed(seed)
     umap_viz0 <- uwot::umap(ensemble.out$ensemble.dist.mat)
     ARI_list[[1]] <- cal_ari_nmi(umap_viz0, k, method, seed, info)
     ASW_list[[1]] <- cluster::silhouette(as.numeric(factor(info)), dist = stats::dist(umap_viz0))[, 3]
@@ -528,6 +529,7 @@ process_and_visualize_meta_methods <- function(mev.out, ensemble.out = NULL, inf
 
   # ADM method
   method <- "ADM"
+  set.seed(seed)
   umap_adm0 <- uwot::umap(mev.out$diffu.dist)
   ARI_list[[length(ARI_list) + 1]] <- cal_ari_nmi(umap_adm0, k, method, seed, info)
   ASW_list[[length(ASW_list) + 1]] <- cluster::silhouette(as.numeric(factor(info)), dist = stats::dist(umap_adm0))[, 3]
