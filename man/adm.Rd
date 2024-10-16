@@ -12,7 +12,7 @@ adm(
   raw.d.pwr = 0.5,
   diffu.steps = NA,
   diffu.factor = 3.5,
-  distr.template = "gamma",
+  distr.template = "combine",
   gamma.shape = 3,
   gamma.rate = 3,
   scale.dist = TRUE,
