@@ -139,7 +139,7 @@ cal_ari_nmi <- function(lowDim_data, k, method_name, seed, info = NULL){
     }
     info <- get("info", envir = .GlobalEnv)
   }
-  set.seed(seed)
+  # set.seed(seed)
   cluster_viz <- stats::kmeans(lowDim_data, centers = k)
   if (!requireNamespace("mclust", quietly = TRUE)) {
     stop("Package 'mclust' is needed for this function to work. Please install it.", call. = FALSE)

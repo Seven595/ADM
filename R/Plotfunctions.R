@@ -532,7 +532,7 @@ process_and_visualize_meta_methods <- function(mev.out, ensemble.out = NULL, inf
 
   # ADM method
   method <- "ADM"
-  # set.seed(seed)
+  set.seed(seed)
   umap_adm0 <- uwot::umap(mev.out$diffu.dist)
   ARI_list[[length(ARI_list) + 1]] <- cal_ari_nmi(umap_adm0, k, method, seed, info)
   ASW_list[[length(ASW_list) + 1]] <- cluster::silhouette(as.numeric(factor(info)), dist = stats::dist(umap_adm0))[, 3]
