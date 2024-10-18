@@ -138,9 +138,12 @@ names_list = c("PCA","MDS","iMDS","Sammon", "HLLE","Isomap","kPCA1","kPCA2","LEI
 #'
 #' @keywords internal
 visualization_func <- function(data, method_name, color_list = NULL, info = NULL) {
+  # Convert data to data frame and set column names
   data <- as.data.frame(data)
   colnames(data)[1:2] <- c("x", "y")
   data$info <- info
+  
+  # Create the base plot
   plot <- ggplot(data, aes(x = .data$x, y = .data$y)) +
     labs(title = method_name, x = "", y = "") +
     theme_minimal() +
@@ -148,16 +151,16 @@ visualization_func <- function(data, method_name, color_list = NULL, info = NULL
       plot.title = element_text(hjust = 0.5, size = 14, face = "bold"),
       axis.text = element_blank(),
       axis.ticks = element_blank(),
-      panel.grid = element_blank()
+      panel.grid = element_blank(),
+      legend.position = "none"  # Remove the legend
     )
 
+  # Add points to the plot
   if (!is.null(info) && !is.null(color_list)) {
     data$info <- info
     plot <- plot +
       geom_point(aes(color = .data$info), alpha = 0.75) +
-      scale_color_manual(values = color_list) +
-      guides(color = guide_legend(override.aes = list(size = 6, shape = 15), ncol = 2)) +
-      theme(legend.key.height = unit(1, "cm"))
+      scale_color_manual(values = color_list)
   } else {
     plot <- plot + geom_point(alpha = 0.75)
   }
